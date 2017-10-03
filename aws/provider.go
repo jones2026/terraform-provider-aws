@@ -162,6 +162,13 @@ func Provider() *schema.Provider {
 				Default:     false,
 				Description: descriptions["s3_force_path_style"],
 			},
+
+			"decode_authorization_messages": {
+				Type:        schema.TypeBool,
+				Optional:    true,
+				Default:     false,
+				Description: descriptions["decode_authorization_messages"],
+			},
 		},
 
 		DataSourcesMap: map[string]*schema.Resource{
