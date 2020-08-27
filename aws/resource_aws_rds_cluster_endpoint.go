@@ -28,6 +28,10 @@ func resourceAwsRDSClusterEndpoint() *schema.Resource {
 			State: schema.ImportStatePassthrough,
 		},
 
+		Timeouts: &schema.ResourceTimeout{
+			Create: schema.DefaultTimeout(30 * time.Minute),
+		},
+
 		Schema: map[string]*schema.Schema{
 			"arn": {
 				Type:     schema.TypeString,
@@ -104,7 +108,7 @@ func resourceAwsRDSClusterEndpointCreate(d *schema.ResourceData, meta interface{
 
 	d.SetId(endpointId)
 
-	err = resourceAwsRDSClusterEndpointWaitForAvailable(d.Timeout(schema.TimeoutDelete), d.Id(), conn)
+	err = resourceAwsRDSClusterEndpointWaitForAvailable(d.Timeout(schema.TimeoutCreate), d.Id(), conn)
 	if err != nil {
 		return err
 	}

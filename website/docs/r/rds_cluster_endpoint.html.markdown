@@ -97,6 +97,12 @@ In addition to all arguments above, the following attributes are exported:
 * `id` - The RDS Cluster Endpoint Identifier
 * `endpoint` - A custom endpoint for the Aurora cluster
 
+## Timeouts
+
+`aws_rds_cluster_endpoint` provides the following
+[Timeouts](/docs/configuration/resources.html#timeouts) configuration options:
+
+- `create` - (Default `30 minutes`) Used for creating the RDS cluster endpoint.
 
 ## Import
 
